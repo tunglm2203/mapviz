@@ -141,12 +141,13 @@ target_link_libraries(rqt_${PROJECT_NAME}
   ${GLEW_LIBRARIES}
   ${OpenCV_LIBS}
   ${catkin_LIBRARIES}
+  -lglut
 )
 add_dependencies(rqt_${PROJECT_NAME}
   ${catkin_EXPORTED_TARGETS}
 )
 if ($ENV{ROS_DISTRO} STREQUAL "kinetic" OR $ENV{ROS_DISTRO} STRLESS "kinetic")
-  set_target_properties(rqt_${PROJECT_NAME} PROPERTIES 
+  set_target_properties(rqt_${PROJECT_NAME} PROPERTIES
     CXX_STANDARD 11
     CXX_STANDARD_REQUIRED ON
   )
@@ -177,7 +178,7 @@ add_dependencies(${PROJECT_NAME}
   ${catkin_EXPORTED_TARGETS}
 )
 if ($ENV{ROS_DISTRO} STREQUAL "kinetic" OR $ENV{ROS_DISTRO} STRLESS "kinetic")
-  set_target_properties(${PROJECT_NAME} PROPERTIES 
+  set_target_properties(${PROJECT_NAME} PROPERTIES
     CXX_STANDARD 11
     CXX_STANDARD_REQUIRED ON
   )
